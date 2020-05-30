@@ -1,0 +1,40 @@
+# load zgen  -*- mode: sh; -*-
+
+# These lines needs to be before loading oh-my-zsh
+# zstyle :omz:plugins:keychain options --quiet
+# zstyle :omz:plugins:keychain agents gpg,ssh
+
+source "${HOME}/.dotfiles/zgen/zgen.zsh"
+
+# check if there's no init script
+
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen oh-my-zsh
+
+    # plugins
+    zgen oh-my-zsh plugins/git
+    zgen oh-my-zsh plugins/sudo
+    zgen oh-my-zsh plugins/docker
+    zgen oh-my-zsh plugins/last-working-dir
+    zgen oh-my-zsh plugins/themes
+    zgen oh-my-zsh plugins/history-substring-search
+    zgen oh-my-zsh plugins/pip
+    zgen oh-my-zsh plugins/python
+    zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-completions src
+    zgen load zsh-users/zsh-autosuggestions
+    zgen load changyuheng/zsh-interactive-cd
+    zgen load marzocchi/zsh-notify
+    zgen load joel-porquet/zsh-dircolors-solarized
+    zgen load djui/alias-tips
+    zgen load Tarrasch/zsh-bd
+    zgen load larkery/zsh-histdb
+
+    # theme
+    zgen oh-my-zsh themes/agnoster
+
+    # save all to init script
+    zgen save
+fi
