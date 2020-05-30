@@ -4,7 +4,7 @@
 # zstyle :omz:plugins:keychain options --quiet
 # zstyle :omz:plugins:keychain agents gpg,ssh
 
-source "${HOME}/.dotfiles/zgen/zgen.zsh"
+source "${HOME}/dotfiles/zgen/zgen.zsh"
 
 # check if there's no init script
 
